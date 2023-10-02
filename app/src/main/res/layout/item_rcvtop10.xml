@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="#f34546"
+    android:layout_margin="10dp">
+    <TextView
+        android:id="@+id/txtMaSachTop10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+
+        />
+    <TextView
+        android:id="@+id/txtTenSachTop10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+
+        />
+    <TextView
+        android:id="@+id/txtSoLuongMuonTop10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+
+        />
+
+</LinearLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sửa loại sách"
+        android:textColor="#f98899"
+        android:textSize="26sp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtSuaLoaiSachLS"
+        android:textSize="22sp"
+        android:hint="Nhập tên loại sách"
+        android:padding="13dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btnSuaLoaiSachLS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sửa"
+            android:textSize="22sp"
+            android:layout_marginTop="10sp"
+            />
+        <Button
+            android:id="@+id/btnDongSuaLoaiSachLS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đóng"
+            android:textSize="22sp"
+            android:layout_marginTop="10sp"
+            />
+    </LinearLayout>
+</LinearLayout>

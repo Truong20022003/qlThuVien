@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.doiMatKhau"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="13dp"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đổi mật khẩu"
+        android:textSize="26sp"
+        />
+    <EditText
+        android:id="@+id/edtMatKhauCu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập mật khẩu cũ"
+        android:textSize="22sp"
+        android:inputType="textPassword"
+        />
+    <EditText
+        android:id="@+id/edtMatKhauMoi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập mật khẩu mới"
+        android:textSize="22sp"
+        android:inputType="textPassword"
+        />
+    <EditText
+        android:id="@+id/edtNhapLaiMatKhau"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập lại mật khẩu mới"
+        android:textSize="22sp"
+        android:inputType="textPassword"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btnLuuMatKhau"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lưu"
+            android:textSize="23sp"
+            android:background="#f96856"
+            android:layout_margin="20sp"
+            />
+        <Button
+            android:id="@+id/btnHuyLuuMK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hủy"
+            android:textSize="23sp"
+            android:background="#f96856"
+            android:layout_margin="20sp"
+            />
+
+    </LinearLayout>
+</LinearLayout>
