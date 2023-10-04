@@ -3,33 +3,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:padding="13dp">
+    android:gravity="center">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:text="Sửa thông tin sách"
+        android:gravity="center"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thêm sách"
         android:textSize="26sp"
-        android:textColor="#f93865"
-        />
+        android:textStyle="bold"
+        android:id="@+id/txtSuaMaSach"/>
     <EditText
-        android:id="@+id/edtThemTenSachS"
+        android:id="@+id/edtSuaTenSachS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nhập tên sách"
         android:textSize="22sp"
-
         />
     <EditText
-        android:id="@+id/edtThemGiaThueS"
+        android:id="@+id/edtSuaGiaThueS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nhập giá thuê"
         android:textSize="22sp"
         />
-
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spnMaLoaiS"/>
+        android:id="@+id/spnSuaMaLoaiS"/>
+
 </LinearLayout>

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="10sp"
-    app:cardCornerRadius="10sp">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,19 +14,31 @@
             android:orientation="vertical"
             android:layout_weight="9">
             <TextView
-                android:id="@+id/txtMaTVtv"
+                android:id="@+id/txtMaSachS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="22sp"
                 />
             <TextView
-                android:id="@+id/txtHOTENTV"
+                android:id="@+id/txtTenSachS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="22sp"
                 />
             <TextView
-                android:id="@+id/txtNAMSINHTV"
+                android:id="@+id/txtGiaThueS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                />
+            <TextView
+                android:id="@+id/txtMaLoaiS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                />
+            <TextView
+                android:id="@+id/txtTenLoaiS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="22sp"
@@ -41,17 +50,19 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:orientation="vertical"
+            android:layout_gravity="center"
             android:layout_height="wrap_content">
             <ImageView
 
-                android:id="@+id/imgXoaThanhVien"
+                android:id="@+id/imgXoaSachS"
                 android:src="@drawable/baseline_delete_24"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
+
                 android:layout_height="wrap_content"/>
             <ImageView
                 android:layout_marginTop="10dp"
-                android:id="@+id/imgSuaThanhVien"
+                android:id="@+id/imgSuaSachS"
                 android:src="@drawable/baseline_edit_24"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"

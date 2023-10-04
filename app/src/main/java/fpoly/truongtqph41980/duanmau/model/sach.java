@@ -6,6 +6,7 @@ public class sach {
     private int giaThue;
     private int maLoai;
     private int soluongdamuon;
+    private String tenLoaiS;
 
     public sach() {
     }
@@ -15,6 +16,24 @@ public class sach {
         this.tenSach = tenSach;
         this.giaThue = giaThue;
         this.maLoai = maLoai;
+    }
+
+
+
+    public String getTenLoaiS() {
+        return tenLoaiS;
+    }
+
+    public void setTenLoaiS(String tenLoaiS) {
+        this.tenLoaiS = tenLoaiS;
+    }
+
+    public sach(int maSach, String tenSach, int giaThue, int maLoai, String tenLoaiS) {
+        this.maSach = maSach;
+        this.tenSach = tenSach;
+        this.giaThue = giaThue;
+        this.maLoai = maLoai;
+        this.tenLoaiS = tenLoaiS;
     }
 
     public sach(int maSach, String tenSach, int soluongdamuon) {

@@ -3,11 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:padding="13sp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Thêm thành viên"
+        android:textStyle="bold"
         android:textColor="#f98899"
         android:textSize="26sp"
         />
@@ -16,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nhập họ tên"
+        android:textStyle="italic"
         android:textSize="22sp"
         />
     <EditText
@@ -23,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nhập năm sinh"
+        android:textStyle="italic"
         android:textSize="22sp"
         />
     <LinearLayout
@@ -36,11 +40,13 @@
             android:layout_height="wrap_content"
             android:text="Thêm"
             android:textSize="22sp"
+            android:background="#FFCCCC"
             />
         <Button
             android:id="@+id/btnDongThemThanhVien"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#FFCCCC"
             android:text="Hủy"
             android:textSize="22sp"
             />

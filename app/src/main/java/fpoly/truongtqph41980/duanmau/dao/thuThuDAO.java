@@ -62,9 +62,6 @@ public class thuThuDAO {
             }else {
                 return true;
             }
-
-
-
         }
 
         return false;

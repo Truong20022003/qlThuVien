@@ -2,6 +2,7 @@ package fpoly.truongtqph41980.duanmau.dao;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -29,7 +30,17 @@ public class sachDAO {
         }
         return list;
     }
-
+    public ArrayList<sach> selectAll(){
+        ArrayList<sach> list = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT sc.MASACH, sc.TENSACH, sc.GIATHUE, sc.MALOAI, lo.TENLOAI FROM SACH sc, LOAISACH lo WHERE sc.MALOAI = lo.MALOAI",null);
+        if (cursor.moveToFirst()){
+            do {
+                list.add(new sach(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3), cursor.getString(4)));
+            }while (cursor.moveToNext());
+        }
+        return list;
+    }
 //    private final fpoly.truongtqph41980.duanmau.database.dbHelper dbHelper;
 //
 //    public sachDAO(fpoly.truongtqph41980.duanmau.database.dbHelper dbHelper) {
@@ -62,5 +73,46 @@ public class sachDAO {
 //        return list;
 //    }
 
+    public boolean themSach(String tensach, int gia, int maLoaiS){
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+//        private String tenSach;
+//        private int giaThue;
+//        private int maLoai;
+        values.put("TENSACH",tensach);
+        values.put("GIATHUE", gia);
+        values.put("MALOAI", maLoaiS);
+        long check = database.insert("SACH", null,values);
+        return  check > 0;
 
+    }
+    public boolean suaSach(int maSach, String tenSach, int giaThue, int maLoai){
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+//        private String tenSach;
+//        private int giaThue;
+//        private int maLoai;
+        values.put("TENSACH",tenSach);
+        values.put("GIATHUE", giaThue);
+        values.put("MALOAI", maLoai);
+
+        long check = database.update("SACH", values, "MASACH = ?", new String[]{String.valueOf(maSach)});
+        return  check > 0;
+
+    }
+    public int xoaSach(int masach){
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        Cursor cursor = database.rawQuery("SELECT * FROM PHIEUMUON WHERE MASACH = ?",new String[]{String.valueOf(masach)});
+        if (cursor.getCount() != 0){
+            return -1;
+        }
+
+        long check = database.delete("SACH", "MASACH = ?",new String[]{String.valueOf(masach)});
+        if (check== -1){
+            return 0;
+        }else {
+            return 1;
+        }
+
+    }
 }
