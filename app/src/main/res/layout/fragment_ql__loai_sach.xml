@@ -10,13 +10,6 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Danh sách loại sách"
-        android:textColor="#f98899"
-        android:textSize="26sp"
-        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvLoaiSach"
         android:layout_width="match_parent"

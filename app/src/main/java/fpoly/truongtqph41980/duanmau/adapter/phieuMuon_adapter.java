@@ -47,7 +47,7 @@ public class phieuMuon_adapter extends RecyclerView.Adapter<phieuMuon_adapter.vi
 //        private int tienThue;
 //        private String ngay;
 //        private int traSach;
-        holder.txtMaPhieuMuonPM.setText("Mã PM: " + String.valueOf(list.get(position).getMaPhieuMuon()));
+        holder.txtMaPhieuMuonPM.setText("Mã Phiếu Mượn: " + String.valueOf(list.get(position).getMaPhieuMuon()));
         holder.txtMaTTPM.setText("Mã Thủ Thư: " + list.get(position).getMaTT());
         holder.txtMaTvPM.setText("Mã Thành viên: " + String.valueOf(list.get(position).getMaTV()));
         holder.txtMaSachPM.setText("Mã sách: " + String.valueOf(list.get(position).getMaSach()));

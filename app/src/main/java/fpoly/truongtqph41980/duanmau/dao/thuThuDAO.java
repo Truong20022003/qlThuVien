@@ -2,6 +2,7 @@ package fpoly.truongtqph41980.duanmau.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -12,9 +13,11 @@ import fpoly.truongtqph41980.duanmau.model.thuThu;
 
 public class thuThuDAO {
     private final dbHelper dbHelper;
+    SharedPreferences sharedPreferences;
 
     public thuThuDAO(Context context) {
         this.dbHelper = new dbHelper(context);
+        sharedPreferences = context.getSharedPreferences("THONGTIN", context.MODE_PRIVATE);
     }
     public ArrayList<thuThu> selectAll(){
         ArrayList<thuThu> list = new ArrayList<>();
@@ -44,6 +47,12 @@ public class thuThuDAO {
         SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT*FROM THUTHU WHERE MATT=? AND MATKHAU=?",new String[]{matt,mk});
         if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("MATT", cursor.getString(0));
+            editor.putString("HOTEN",cursor.getString(1));
+            editor.putString("LOAITAIKHOAN",cursor.getString(3));
+            editor.commit();
             return true;
         }else {
             return false;

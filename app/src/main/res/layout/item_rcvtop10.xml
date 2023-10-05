@@ -4,8 +4,9 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="#f34546"
-    android:layout_margin="10dp">
+
+    android:layout_margin="10dp"
+    android:background="#FFFFCC">
     <TextView
         android:id="@+id/txtMaSachTop10"
         android:layout_width="match_parent"

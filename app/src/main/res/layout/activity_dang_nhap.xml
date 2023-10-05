@@ -25,6 +25,7 @@
         />
 
     <EditText
+        android:layout_margin="13sp"
         android:id="@+id/edtUSERNAMEDN"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -43,6 +44,7 @@
         />
 
     <EditText
+        android:layout_margin="13sp"
         android:id="@+id/edtPASSWORDDN"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -54,13 +56,14 @@
         android:id="@+id/btnLOGINDN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LOGIN"
+        android:text="Đăng nhập"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="#FF9800"
+        android:background="#FF9966"
+
         />
 
 </LinearLayout>

@@ -28,11 +28,7 @@ public class dang_nhap extends AppCompatActivity {
                 String user = edtUSERNAMEDN.getText().toString();
                 String pass = edtPassDN.getText().toString();
                 if (thuThuDAO.checkDangNhap(user,pass)){
-                    SharedPreferences sharedPreferences = getSharedPreferences("THONGTIN",MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("MATT", user);
-                    editor.putString("mk",pass);
-                    editor.commit();
+
                     startActivity(new Intent(dang_nhap.this, MainActivity.class));
 
                 }else {

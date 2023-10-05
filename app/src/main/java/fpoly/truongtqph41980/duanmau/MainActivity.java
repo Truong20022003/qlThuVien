@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -50,7 +51,8 @@ LinearLayout lin1;
         drawerLayout = findViewById(R.id.drawerLayout);
         frameLayout = findViewById(R.id.frameLayout);
         navigationView = findViewById(R.id.navigationView);
-
+        View headerLayout = navigationView.getHeaderView(0);
+        TextView txtHoTen = headerLayout.findViewById(R.id.txtHoTenHeader);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -89,6 +91,16 @@ LinearLayout lin1;
                 return false;
             }
         });
+        SharedPreferences sharedPreferences = getSharedPreferences("THONGTIN", MODE_PRIVATE);
+        String loaiTaiKhoan = sharedPreferences.getString("LOAITAIKHOAN","");
+        if (!loaiTaiKhoan.equalsIgnoreCase("admin")){
+            Menu menu = navigationView.getMenu();
+            menu.findItem(R.id.qlDoanhThu).setVisible(false);
+            menu.findItem(R.id.qlTop10).setVisible(false);
+        }
+        String hoTen = sharedPreferences.getString("HOTEN","");
+        txtHoTen.setText("Xin chào: "+hoTen);
+
 
     }
 

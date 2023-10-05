@@ -18,9 +18,10 @@ public class dbHelper extends SQLiteOpenHelper {
         // Bảng thủ thư
         String dbThuThu = "CREATE TABLE THUTHU(MATT TEXT PRIMARY KEY," +
                                                     " HOTEN TEXT NOT NULL," +
-                                                    " MATKHAU TEXT NOT NULL)";
+                                                    " MATKHAU TEXT NOT NULL, " +
+                                                    "LOAITAIKHOAN TEXT NOT NULL)";
         db.execSQL(dbThuThu);
-        db.execSQL("INSERT INTO THUTHU VALUES('thuthu01','nguyễn văn a','609n'),('thuthu02','nguyễn văn b','609n'),('thuthu03','nguyễn văn c','609n')");
+        db.execSQL("INSERT INTO THUTHU VALUES('thuthu01','nguyễn văn a','609n','admin'),('thuthu02','nguyễn văn b','609n','thuthu'),('thuthu03','nguyễn văn c','609n','thuthu')");
 
 
        //Bảng thành viên

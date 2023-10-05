@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FFCC33"
-    tools:context=".MainActivity">
+    android:gravity="center"
+    tools:context=".MainActivity"
+    android:paddingBottom="70sp">
 
     <ImageView
         android:layout_width="300dp"
@@ -13,4 +15,12 @@
         android:src="@drawable/logo"
         android:layout_gravity="center"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Quản lý thư viện"
+        android:textStyle="bold"
+        android:textColor="#FF9900"
+        android:textSize="40sp"/>
 </LinearLayout>
