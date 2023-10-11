@@ -57,7 +57,7 @@ public class doiMatKhau extends Fragment {
         return view;
     }
     private void doiMatKhau(){
-        String oldPass = edtMatKhauCu.getText().toString();
+                String oldPass = edtMatKhauCu.getText().toString();
                 String newPass = edtMatKhauMoi.getText().toString();
                 String reNewPass = edtNhapLaiMatKhau.getText().toString();
                 if (newPass.equals(reNewPass)){
@@ -65,8 +65,9 @@ public class doiMatKhau extends Fragment {
                     String matt = sharedPreferences.getString("MATT", "");
                     String mk = sharedPreferences.getString("MATKHAU","");
                     //cập nhật
-                    thuThuDAO thuThuDAO = new thuThuDAO(getContext());
-                    boolean check = thuThuDAO.capNhatMatKhau(matt,oldPass,newPass);
+                    if(oldPass.equals(mk)){
+                        thuThuDAO thuThuDAO = new thuThuDAO(getContext());
+                        boolean check = thuThuDAO.capNhatMatKhau(matt,oldPass,newPass);
 
                         if (check) {
                             Toast.makeText(getContext(), "Thay đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
@@ -76,7 +77,9 @@ public class doiMatKhau extends Fragment {
                         } else {
                             Toast.makeText(getContext(), "Thay đổi thất bại", Toast.LENGTH_SHORT).show();
                         }
-
+                    }else{
+                        Toast.makeText(getContext(), "Mật khẩu cũ không đúng", Toast.LENGTH_SHORT).show();
+                    }
 
                 }else {
                     Toast.makeText(getContext(), "Mật khẩu không trùng khớp", Toast.LENGTH_SHORT).show();

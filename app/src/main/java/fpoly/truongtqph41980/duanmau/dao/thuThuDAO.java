@@ -51,6 +51,7 @@ public class thuThuDAO {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("MATT", cursor.getString(0));
             editor.putString("HOTEN",cursor.getString(1));
+            editor.putString("MATKHAU",cursor.getString(2));
             editor.putString("LOAITAIKHOAN",cursor.getString(3));
             editor.commit();
             return true;
@@ -71,8 +72,9 @@ public class thuThuDAO {
             }else {
                 return true;
             }
-        }
+        }else {
 
-        return false;
+            return false;
+        }
     }
 }
