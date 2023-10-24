@@ -7,6 +7,31 @@ public class sach {
     private int maLoai;
     private int soluongdamuon;
     private String tenLoaiS;
+    private int soLuongSach;
+
+    public int getSoLuongSach() {
+        return soLuongSach;
+    }
+
+    public sach(int maSach, String tenSach, int giaThue, int maLoai, String tenLoaiS, int soLuongSach) {
+        this.maSach = maSach;
+        this.tenSach = tenSach;
+        this.giaThue = giaThue;
+        this.maLoai = maLoai;
+        this.tenLoaiS = tenLoaiS;
+        this.soLuongSach = soLuongSach;
+    }
+
+//    public sach(String tenSach, int giaThue, int maLoai, int soLuongSach) {
+//        this.tenSach = tenSach;
+//        this.giaThue = giaThue;
+//        this.maLoai = maLoai;
+//        this.soLuongSach = soLuongSach;
+//    }
+
+    public void setSoLuongSach(int soLuongSach) {
+        this.soLuongSach = soLuongSach;
+    }
 
     public sach() {
     }
@@ -18,8 +43,14 @@ public class sach {
         this.maLoai = maLoai;
     }
 
-
-
+//    public sach(int maSach, String tenSach, int giaThue, int maLoai, int soLuongSach) {
+//        this.maSach = maSach;
+//        this.tenSach = tenSach;
+//        this.giaThue = giaThue;
+//        this.maLoai = maLoai;
+//        this.soLuongSach = soLuongSach;
+//    }
+//    sc.MASACH, sc.TENSACH, sc.GIATHUE, sc.MALOAI,sc.SOLUONG
     public String getTenLoaiS() {
         return tenLoaiS;
     }
@@ -28,13 +59,13 @@ public class sach {
         this.tenLoaiS = tenLoaiS;
     }
 
-    public sach(int maSach, String tenSach, int giaThue, int maLoai, String tenLoaiS) {
-        this.maSach = maSach;
-        this.tenSach = tenSach;
-        this.giaThue = giaThue;
-        this.maLoai = maLoai;
-        this.tenLoaiS = tenLoaiS;
-    }
+//    public sach(int maSach, String tenSach, int giaThue, int maLoai, String tenLoaiS) {
+//        this.maSach = maSach;
+//        this.tenSach = tenSach;
+//        this.giaThue = giaThue;
+//        this.maLoai = maLoai;
+//        this.tenLoaiS = tenLoaiS;
+//    }
 
     public sach(int maSach, String tenSach, int soluongdamuon) {
         this.maSach = maSach;

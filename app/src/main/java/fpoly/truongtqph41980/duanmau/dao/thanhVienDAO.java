@@ -51,6 +51,7 @@ public class thanhVienDAO {
                     thanhVien.setMaTV(cursor.getInt(0));
                     thanhVien.setHoTen(cursor.getString(1));
                     thanhVien.setNamSinh(cursor.getString(2));
+                    thanhVien.setSotaikhoan(cursor.getInt(3));
                     list.add(thanhVien);
                     cursor.moveToNext();
 
@@ -81,6 +82,7 @@ public class thanhVienDAO {
         ContentValues values = new ContentValues();
         values.put("HOTENTV",tv.getHoTen());
         values.put("NAMSINH", tv.getNamSinh());
+        values.put("SOTAIKHOAN",tv.getSotaikhoan());
         long check = sqLiteDatabase.insert("THANHVIEN", null, values);
         return check>0;
     }

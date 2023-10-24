@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -88,7 +89,7 @@ public class phieuMuon_adapter extends RecyclerView.Adapter<phieuMuon_adapter.vi
     public class viewHolder extends RecyclerView.ViewHolder{
         TextView txtMaPhieuMuonPM, txtMaTTPM, txtMaTvPM, txtMaSachPM, txtTienThuePM, txtNgayPM, txtTraSachPM;
         Button btnTraSach;
-
+//        ImageView imgSuaPM, imgXoaPM;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
             txtMaPhieuMuonPM = itemView.findViewById(R.id.txtMaPhieuMuonPM);
@@ -100,8 +101,8 @@ public class phieuMuon_adapter extends RecyclerView.Adapter<phieuMuon_adapter.vi
             txtTraSachPM = itemView.findViewById(R.id.txtTraSachPM);
             btnTraSach = itemView.findViewById(R.id.btnTraSachPM);
 
-        }
 
+        }
     }
 
 

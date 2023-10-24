@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SimpleAdapter;
@@ -19,6 +20,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 import fpoly.truongtqph41980.duanmau.R;
@@ -56,6 +59,8 @@ private sachDAO sachDAO;
         holder.txtGiaThue.setText("Giá thuê: "+String.valueOf(list.get(position).getGiaThue()));
         holder.txtMaLoai.setText("Mã loại: "+String.valueOf(list.get(position).getMaLoai()));
         holder.txtTenLoai.setText("Tên loại: "+list.get(position).getTenLoaiS());
+        holder.txtSoLuongSach.setText("Số lượng: "+ String.valueOf(list.get(position).getSoLuongSach()));
+
         holder.imgXoaSach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,8 +96,10 @@ private sachDAO sachDAO;
     }
 
     public class ViewHolder extends  RecyclerView.ViewHolder {
-        TextView txtMaSach, txtTenSach, txtGiaThue, txtMaLoai, txtTenLoai;
+        TextView txtMaSach, txtTenSach, txtGiaThue, txtMaLoai, txtTenLoai,txtSoLuongSach;
         ImageView imgSuaSach, imgXoaSach;
+
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtMaSach = itemView.findViewById(R.id.txtMaSachS);
@@ -102,6 +109,7 @@ private sachDAO sachDAO;
             txtTenLoai = itemView.findViewById(R.id.txtTenLoaiS);
             imgSuaSach = itemView.findViewById(R.id.imgSuaSachS);
             imgXoaSach = itemView.findViewById(R.id.imgXoaSachS);
+            txtSoLuongSach = itemView.findViewById(R.id.txtSoLuongSach);
         }
 
     }
@@ -110,7 +118,7 @@ private sachDAO sachDAO;
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
         View view = inflater.inflate(R.layout.item_suasach,null);
         builder.setView(view);
-
+        EditText edtSUASoLuongSACH = view.findViewById(R.id.edtSUASoLuongSACH);
         TextView txtSuaMaSach = view.findViewById(R.id.txtSuaMaSach);
         EditText edtTenSach = view.findViewById(R.id.edtSuaTenSachS);
         EditText edtGiaThue = view.findViewById(R.id.edtSuaGiaThueS);
@@ -150,8 +158,8 @@ private sachDAO sachDAO;
                 int gia = Integer.parseInt(edtGiaThue.getText().toString());
                 HashMap<String, Object> hss = (HashMap<String, Object>) spnSuaMaLoaiS.getSelectedItem();
                 int maLoaiSach = (int) hss.get("MALOAI");
-
-                boolean check = sachDAO.suaSach(sach.getMaSach(),tenSach,gia,maLoaiSach);
+                int sl = Integer.parseInt(edtSUASoLuongSACH.getText().toString());
+                boolean check = sachDAO.suaSach(sach.getMaSach(),tenSach,gia,maLoaiSach,sl);
                 if (check){
                     Toast.makeText(context, "Thêm sách thành công", Toast.LENGTH_SHORT).show();
                     loadData();

@@ -27,9 +27,10 @@ public class dbHelper extends SQLiteOpenHelper {
        //Bảng thành viên
         String dbThanhVien = "CREATE TABLE THANHVIEN(MATV INTEGER PRIMARY KEY AUTOINCREMENT," +
                                                     "HOTENTV TEXT NOT NULL," +
-                                                    "NAMSINH TEXT NOT NULL)";
+                                                    "NAMSINH TEXT NOT NULL," +
+                "SOTAIKHOAN INTEGER NOT NULL)";
         db.execSQL(dbThanhVien);
-        db.execSQL("INSERT INTO THANHVIEN VALUES(1,'Trần Quang Trường','2003'),(2,'Phạm Thị Hồng Nhung','2003'),(3,'Trần Ngọc Hoàng','2004')");
+        db.execSQL("INSERT INTO THANHVIEN VALUES(1,'Trần Quang Trường','2003',2),(2,'Phạm Thị Hồng Nhung','2003',6),(3,'Trần Ngọc Hoàng','2004',10)");
         // Bảng loại sách
         String dbLoaiSach = "CREATE TABLE LOAISACH(MALOAI INTEGER PRIMARY KEY AUTOINCREMENT," +
                                                     " TENLOAI TEXT NOT NULL)";
@@ -39,9 +40,10 @@ public class dbHelper extends SQLiteOpenHelper {
         String dbSach = "CREATE TABLE SACH(MASACH INTEGER PRIMARY KEY AUTOINCREMENT," +
                                                     " TENSACH TEXT NOT NULL," +
                                                     " GIATHUE INTEGER NOT NULL," +
-                                                    " MALOAI INTEGER REFERENCES LOAISACH(MALOAI))";
+                                                    " MALOAI INTEGER REFERENCES LOAISACH(MALOAI)," +
+                                                    " SOLUONG INTEGER NOT NULL)";
         db.execSQL(dbSach);
-        db.execSQL("INSERT INTO SACH VALUES(1,'Sách ngữ văn',20000,2), (2,'Doraemon',30000,1), (3,'Harry Potter',10000,3)");
+        db.execSQL("INSERT INTO SACH VALUES(1,'Sách ngữ văn',20000,2,5), (2,'Doraemon',30000,1,10), (3,'Harry Potter',10000,3,15)");
         // Bảng phiếu mượn
         String dbPhieuMuon = "CREATE TABLE PHIEUMUON(MAPM INTEGER PRIMARY KEY AUTOINCREMENT," +
                                                     " MATT TEXT REFERENCES THUTHU(MATT)," +

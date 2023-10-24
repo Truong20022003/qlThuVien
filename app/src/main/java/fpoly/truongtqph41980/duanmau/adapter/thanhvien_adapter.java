@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -48,6 +50,13 @@ public class thanhvien_adapter extends RecyclerView.Adapter<thanhvien_adapter.Vi
         holder.txtMaTV.setText("Mã thành viên: "+ String.valueOf(list.get(position).getMaTV()));
         holder.txtTenTV.setText("Tên thành viên: " + list.get(position).getHoTen());
         holder.txtNamSinh.setText("Năm sinh: " + list.get(position).getNamSinh());
+        holder.txtSoTaiKhoan.setText("Số tài khoản: " + String.valueOf(list.get(position).getSotaikhoan()));
+
+        if (list.get(position).getSotaikhoan() % 5 != 0){
+            holder.txtSoTaiKhoan.setTypeface(null, Typeface.NORMAL);
+        }else {
+            holder.txtSoTaiKhoan.setTypeface(null, Typeface.BOLD);
+        }
         thanhVien thanhVien = list.get(position);
 
         holder.imgXoaTV.setOnClickListener(new View.OnClickListener() {
@@ -132,7 +141,7 @@ public class thanhvien_adapter extends RecyclerView.Adapter<thanhvien_adapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtMaTV, txtTenTV, txtNamSinh;
+        TextView txtMaTV, txtTenTV, txtNamSinh, txtSoTaiKhoan;
         ImageView imgSuaTV, imgXoaTV;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -141,7 +150,7 @@ public class thanhvien_adapter extends RecyclerView.Adapter<thanhvien_adapter.Vi
             txtNamSinh = itemView.findViewById(R.id.txtNAMSINHTV);
             imgSuaTV = itemView.findViewById(R.id.imgSuaThanhVien);
             imgXoaTV = itemView.findViewById(R.id.imgXoaThanhVien);
-
+            txtSoTaiKhoan = itemView.findViewById(R.id.txtSoTaiKhoan);
         }
     }
 }

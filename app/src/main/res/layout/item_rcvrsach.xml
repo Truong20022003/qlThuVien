@@ -47,6 +47,13 @@
                 android:layout_height="wrap_content"
                 android:textSize="22sp"
                 />
+            <TextView
+                android:id="@+id/txtSoLuongSach"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                />
+
         </LinearLayout>
 
 
@@ -72,5 +79,6 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

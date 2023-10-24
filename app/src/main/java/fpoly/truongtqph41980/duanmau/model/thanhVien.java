@@ -4,6 +4,22 @@ public class thanhVien {
     private int maTV;
     private String hoTen;
     private String namSinh;
+    private int sotaikhoan;
+
+    public int getSotaikhoan() {
+        return sotaikhoan;
+    }
+
+    public thanhVien(int maTV, String hoTen, String namSinh, int sotaikhoan) {
+        this.maTV = maTV;
+        this.hoTen = hoTen;
+        this.namSinh = namSinh;
+        this.sotaikhoan = sotaikhoan;
+    }
+
+    public void setSotaikhoan(int sotaikhoan) {
+        this.sotaikhoan = sotaikhoan;
+    }
 
     public thanhVien() {
     }
@@ -12,6 +28,12 @@ public class thanhVien {
         this.maTV = maTV;
         this.hoTen = hoTen;
         this.namSinh = namSinh;
+    }
+
+    public thanhVien(String hoTen, String namSinh, int sotaikhoan) {
+        this.hoTen = hoTen;
+        this.namSinh = namSinh;
+        this.sotaikhoan = sotaikhoan;
     }
 
     public thanhVien(String hoTen, String namSinh) {

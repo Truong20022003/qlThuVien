@@ -55,7 +55,7 @@ thanhVienDAO thanhVienDAO;
                 builder.setView(view);
                 AlertDialog dialog = builder.create();
                 dialog.show();
-
+                EditText edtNhapSTK = view.findViewById(R.id.edtNhapSTK);
                 EditText edtNhapTenTV = view.findViewById(R.id.edtNhapHoTenTV);
                 EditText edtNhapNamSinhTV = view.findViewById(R.id.edtNhapNamSinhTV);
                 Button btnThemTV = view.findViewById(R.id.btnThemThanhVien);
@@ -72,8 +72,8 @@ thanhVienDAO thanhVienDAO;
                     public void onClick(View v) {
                         String hoten = edtNhapTenTV.getText().toString();
                         String namSinh = edtNhapNamSinhTV.getText().toString();
-
-                        thanhVien tv = new thanhVien(hoten,namSinh);
+                        int stk = Integer.parseInt(edtNhapSTK.getText().toString());
+                        thanhVien tv = new thanhVien(hoten,namSinh,stk);
 
                         if (hoten.isEmpty() || namSinh.isEmpty()){
                             Toast.makeText(getContext(), "Không được để trống thông tin", Toast.LENGTH_SHORT).show();

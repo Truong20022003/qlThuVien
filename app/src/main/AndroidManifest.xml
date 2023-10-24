@@ -13,13 +13,16 @@
         android:theme="@style/Theme.Truongtqph41980_duanmau"
         tools:targetApi="31">
         <activity
+            android:name=".manhinh_cho"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".dang_nhap"
             android:exported="false" />
         <activity
-            android:name=".manhinh_cho"
+            android:name=".man2"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

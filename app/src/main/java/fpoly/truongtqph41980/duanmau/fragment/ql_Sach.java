@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,9 +38,14 @@ public class ql_Sach extends Fragment {
     public ql_Sach() {
         // Required empty public constructor
     }
-
+EditText edtTimKiemSach;
     sachDAO sachDAO;
+
+    ArrayList<sach> list  = new ArrayList<>();
+    ArrayList<sach> list2  = new ArrayList<>();
     RecyclerView rcv;
+    sach sach;
+    sach_adapter adapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -46,14 +53,44 @@ public class ql_Sach extends Fragment {
         // Inflate the layout for this fragment
         rcv = view.findViewById(R.id.rcv_qlSach);
         FloatingActionButton fladdSach = view.findViewById(R.id.fladdSach);
+        edtTimKiemSach = view.findViewById(R.id.edtTimKiemSach);
+
         sachDAO = new sachDAO(getContext());
-        loadData();
+        list  = sachDAO.selectAll();
+        list2  = sachDAO.selectAll();
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        rcv.setLayoutManager(layoutManager);
+        sach_adapter adapter = new sach_adapter(getContext(),list, getDSLoaiSach(), sachDAO);
+        rcv.setAdapter(adapter);
         fladdSach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDialog();
             }
         });
+//        edtTimKiemSach.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                list.clear();
+//                String searchQuery = s.toString();
+//                for (sach s2 : list2){
+//                    if (String.valueOf(s2.getSoLuongSach()).compareTo (searchQuery)< 0){
+//                        list.add(s2);
+//                    }
+//                }
+//                adapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//            }
+//        });
         return view;
     }
     private void showDialog(){
@@ -85,7 +122,11 @@ public class ql_Sach extends Fragment {
                 boolean check = sachDAO.themSach(tenSach,gia,maLoaiSach);
                 if (check){
                     Toast.makeText(getContext(), "Thêm sách thành công", Toast.LENGTH_SHORT).show();
-                    loadData();
+                    list  = sachDAO.selectAll();
+                    LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+                    rcv.setLayoutManager(layoutManager);
+                    sach_adapter adapter = new sach_adapter(getContext(),list, getDSLoaiSach(), sachDAO);
+                    rcv.setAdapter(adapter);
                 }else {
                     Toast.makeText(getContext(), "Thêm không thành công", Toast.LENGTH_SHORT).show();
                 }
@@ -120,10 +161,6 @@ public class ql_Sach extends Fragment {
         return listHM;
     }
     private void loadData(){
-        ArrayList<sach> list  = sachDAO.selectAll();
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        rcv.setLayoutManager(layoutManager);
-        sach_adapter adapter = new sach_adapter(getContext(),list, getDSLoaiSach(), sachDAO);
-        rcv.setAdapter(adapter);
+
     }
 }

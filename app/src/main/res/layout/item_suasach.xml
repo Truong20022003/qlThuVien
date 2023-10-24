@@ -31,7 +31,14 @@
         android:layout_height="wrap_content"
         android:hint="Nhập giá thuê"
         android:textSize="22sp"
-        />
+        /><EditText
+    android:id="@+id/edtSUASoLuongSACH"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Nhập số lượng"
+    android:textSize="22sp"
+    />
+
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

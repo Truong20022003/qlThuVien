@@ -9,9 +9,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 import fpoly.truongtqph41980.duanmau.database.dbHelper;
 import fpoly.truongtqph41980.duanmau.model.sach;
+import fpoly.truongtqph41980.duanmau.model.thanhVien;
 
 public class sachDAO {
     dbHelper dbHelper;
@@ -30,13 +33,21 @@ public class sachDAO {
         }
         return list;
     }
+//    thanhVien thanhVien = new thanhVien();
+//                    thanhVien.setMaTV(cursor.getInt(0));
+//                    thanhVien.setHoTen(cursor.getString(1));
+//                    thanhVien.setNamSinh(cursor.getString(2));
+//                    thanhVien.setSotaikhoan(cursor.getInt(3));
+//                    list.add(thanhVien);
+//                    cursor.moveToNext();
     public ArrayList<sach> selectAll(){
         ArrayList<sach> list = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT sc.MASACH, sc.TENSACH, sc.GIATHUE, sc.MALOAI, lo.TENLOAI FROM SACH sc, LOAISACH lo WHERE sc.MALOAI = lo.MALOAI",null);
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT sc.MASACH, sc.TENSACH, sc.GIATHUE, sc.MALOAI, lo.TENLOAI,sc.SOLUONG FROM SACH sc, LOAISACH lo WHERE sc.MALOAI = lo.MALOAI",null);
         if (cursor.moveToFirst()){
             do {
-                list.add(new sach(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3), cursor.getString(4)));
+                list.add(new sach(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3), cursor.getString(4),cursor.getInt(5)));
+
             }while (cursor.moveToNext());
         }
         return list;
@@ -86,7 +97,7 @@ public class sachDAO {
         return  check > 0;
 
     }
-    public boolean suaSach(int maSach, String tenSach, int giaThue, int maLoai){
+    public boolean suaSach(int maSach, String tenSach, int giaThue, int maLoai, int soLuong){
         SQLiteDatabase database = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
 //        private String tenSach;
@@ -95,7 +106,7 @@ public class sachDAO {
         values.put("TENSACH",tenSach);
         values.put("GIATHUE", giaThue);
         values.put("MALOAI", maLoai);
-
+        values.put("SOLUONG", soLuong);
         long check = database.update("SACH", values, "MASACH = ?", new String[]{String.valueOf(maSach)});
         return  check > 0;
 
